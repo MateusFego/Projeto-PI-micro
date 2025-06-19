@@ -29,7 +29,7 @@ public class ConvenioService {
         return modelMapper.map(c, ConvenioDto.class);
     }
 
-    public ConvenioDto atualizar(Long id, ConvenioDto dto) {
+    public ConvenioDto atualizar(Integer id, ConvenioDto dto) {
         log.info("Atualizando convênio com ID: {}", id);
         Convenio existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));
@@ -38,14 +38,14 @@ public class ConvenioService {
         return modelMapper.map(atualizado, ConvenioDto.class);
     }
 
-    public void remover(Long id) {
+    public void remover(Integer id) {
         log.info("Removendo convênio com ID: {}", id);
         Convenio c = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));
         repository.delete(c);
     }
 
-    public ConvenioDto buscarPorId(Long id) {
+    public ConvenioDto buscarPorId(Integer id) {
         log.info("Buscando convênio com ID: {}", id);
         Convenio c = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));

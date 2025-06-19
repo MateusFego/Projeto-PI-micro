@@ -29,7 +29,7 @@ public class ProntuarioService {
         return modelMapper.map(p, ProntuarioDto.class);
     }
 
-    public ProntuarioDto atualizar(Long id, ProntuarioDto dto) {
+    public ProntuarioDto atualizar(Integer id, ProntuarioDto dto) {
         log.info("Atualizando prontuário com ID: {}", id);
         Prontuario existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Prontuário não encontrado com ID: " + id));
@@ -38,14 +38,14 @@ public class ProntuarioService {
         return modelMapper.map(atualizado, ProntuarioDto.class);
     }
 
-    public void remover(Long id) {
+    public void remover(Integer id) {
         log.info("Removendo prontuário com ID: {}", id);
         Prontuario p = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Prontuário não encontrado com ID: " + id));
         repository.delete(p);
     }
 
-    public ProntuarioDto buscarPorId(Long id) {
+    public ProntuarioDto buscarPorId(Integer id) {
         log.info("Buscando prontuário com ID: {}", id);
         Prontuario p = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Prontuário não encontrado com ID: " + id));
