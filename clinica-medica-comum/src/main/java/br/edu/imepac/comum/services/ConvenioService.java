@@ -22,14 +22,14 @@ public class ConvenioService {
         this.repository = repository;
     }
 
-    public ConvenioDto adicionar(ConvenioRequest request) {
+    public ConvenioDto adicionarConvenio(ConvenioRequest request) {
         log.info("Cadastro de convênio: {}", request);
         Convenio c = modelMapper.map(request, Convenio.class);
         c = repository.save(c);
         return modelMapper.map(c, ConvenioDto.class);
     }
 
-    public ConvenioDto atualizar(Integer id, ConvenioDto dto) {
+    public ConvenioDto atualizarConvenio(Long id, ConvenioDto dto) {
         log.info("Atualizando convênio com ID: {}", id);
         Convenio existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));
@@ -38,21 +38,21 @@ public class ConvenioService {
         return modelMapper.map(atualizado, ConvenioDto.class);
     }
 
-    public void remover(Integer id) {
+    public void removerConvenio(Long id) {
         log.info("Removendo convênio com ID: {}", id);
         Convenio c = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));
         repository.delete(c);
     }
 
-    public ConvenioDto buscarPorId(Integer id) {
+    public ConvenioDto buscarConvenioPorId(Long id) {
         log.info("Buscando convênio com ID: {}", id);
         Convenio c = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Convênio não encontrado com ID: " + id));
         return modelMapper.map(c, ConvenioDto.class);
     }
 
-    public List<ConvenioDto> listar() {
+    public List<ConvenioDto> listarConvenios() {
         log.info("Listando todos os convênios");
         return repository.findAll().stream()
                 .map(c -> modelMapper.map(c, ConvenioDto.class))

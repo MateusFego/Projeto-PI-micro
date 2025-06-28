@@ -2,14 +2,14 @@ package br.edu.imepac.comum.models;
 
 import br.edu.imepac.comum.domain.EnumTipoFuncionario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "funcionarios")
@@ -17,12 +17,12 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String usuario;
     private String senha;
     private String nome;
-    private Integer idade;
+    private Long idade;
     private char sexo;
 
     private String cpf;
@@ -38,4 +38,15 @@ public class Funcionario {
 
     @Enumerated(EnumType.STRING)
     private EnumTipoFuncionario tipoFuncionario;
+
+    @ManyToOne
+    @JoinColumn(name = "especialidade_id")
+    private Especialidade especialidade;
+
+    @ManyToOne
+    @JoinColumn(name = "perfil_id")
+    private Perfil perfil;
+
+    @OneToMany(mappedBy = "funcionario")
+    private List<Consulta> consultas;
 }

@@ -12,10 +12,10 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/especialidades")
-public class EspecialdadeController {
+public class EspecialidadeController {
     private final EspecialidadeService especialidadeService;
 
-    public EspecialdadeController(EspecialidadeService especialidadeService) {
+    public EspecialidadeController(EspecialidadeService especialidadeService) {
         this.especialidadeService = especialidadeService;
     }
 

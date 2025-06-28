@@ -29,7 +29,7 @@ public class PacienteService {
         return modelMapper.map(paciente, PacienteDto.class);
     }
 
-    public PacienteDto atualizarPaciente(Integer id, PacienteDto dto) {
+    public PacienteDto atualizarPaciente(Long id, PacienteDto dto) {
         log.info("Atualizando paciente com ID: {}", id);
         Paciente existente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Paciente não encontrado com ID: " + id));
@@ -38,21 +38,21 @@ public class PacienteService {
         return modelMapper.map(atualizado, PacienteDto.class);
     }
 
-    public void removerPaciente(Integer id) {
+    public void removerPaciente(Long id) {
         log.info("Removendo paciente com ID: {}", id);
         Paciente paciente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Paciente não encontrado com ID: " + id));
         repository.delete(paciente);
     }
 
-    public PacienteDto buscarPorId(Integer id) {
+    public PacienteDto buscarPacientePorId(Long id) {
         log.info("Buscando paciente com ID: {}", id);
         Paciente paciente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Paciente não encontrado com ID: " + id));
         return modelMapper.map(paciente, PacienteDto.class);
     }
 
-    public List<PacienteDto> listar() {
+    public List<PacienteDto> listarPacientes() {
         log.info("Listando todos os pacientes");
         return repository.findAll().stream()
                 .map(p -> modelMapper.map(p, PacienteDto.class))

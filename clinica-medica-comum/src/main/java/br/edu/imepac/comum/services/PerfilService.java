@@ -1,5 +1,8 @@
 package br.edu.imepac.comum.services;
 
+import br.edu.imepac.comum.dtos.perfil.PerfilDto;
+import br.edu.imepac.comum.dtos.perfil.PerfilRequest;
+import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
 import br.edu.imepac.comum.models.Perfil;
 import br.edu.imepac.comum.repositories.PerfilRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -20,35 +23,41 @@ public class PerfilService {
         this.perfilRepository = perfilRepository;
     }
 
-    public Perfil adicionarPerfil(Perfil perfil) {
-        log.info("Cadastro de perfil - service: {}", perfil);
-        return perfilRepository.save(perfil);
+    public PerfilDto adicionarPerfil(PerfilRequest perfilRequest) {
+        log.info("Cadastro de perfil - service: {}", perfilRequest);
+        Perfil perfil = modelMapper.map(perfilRequest, Perfil.class);
+        perfil = perfilRepository.save(perfil);
+        return modelMapper.map(perfil, PerfilDto.class);
     }
 
-    public Perfil atualizarPerfil(Long id, Perfil perfilAtualizado) {
+    public PerfilDto atualizarPerfil(Long id, PerfilDto perfilDto) {
         log.info("Atualizando perfil com ID: {}", id);
         Perfil perfilExistente = perfilRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Perfil não encontrado com ID: " + id));
-        modelMapper.map(perfilAtualizado, perfilExistente);
-        return perfilRepository.save(perfilExistente);
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Perfil não encontrado com ID: " + id));
+        modelMapper.map(perfilDto, perfilExistente);
+        Perfil perfilAtualizado = perfilRepository.save(perfilExistente);
+        return modelMapper.map(perfilAtualizado, PerfilDto.class);
     }
 
     public void removerPerfil(Long id) {
         log.info("Removendo perfil com ID: {}", id);
         Perfil perfil = perfilRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Perfil não encontrado com ID: " + id));
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Perfil não encontrado com ID: " + id));
         perfilRepository.delete(perfil);
     }
 
-    public Perfil buscarPerfilPorId(Long id) {
+    public PerfilDto buscarPerfilPorId(Long id) {
         log.info("Buscando perfil com ID: {}", id);
-        return perfilRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Perfil não encontrado com ID: " + id));
+        Perfil perfil = perfilRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Perfil não encontrado com ID: " + id));
+        return modelMapper.map(perfil, PerfilDto.class);
     }
 
-    public List<Perfil> listarPerfis() {
+    public List<PerfilDto> listarPerfis() {
         log.info("Listando todos os perfis");
-        return perfilRepository.findAll();
+        return perfilRepository.findAll().stream()
+                .map(perfil -> modelMapper.map(perfil, PerfilDto.class))
+                .toList();
     }
 
     public boolean verificarAutorizacao(String usuario, String senha, String acao) {

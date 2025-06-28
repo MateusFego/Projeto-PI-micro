@@ -11,10 +11,10 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FuncionarioDto {
-    private Integer id;
+    private Long id;
     private String usuario;
     private String nome;
-    private Integer idade;
+    private Long idade;
     private char sexo;
     private String cpf;
     private String rua;

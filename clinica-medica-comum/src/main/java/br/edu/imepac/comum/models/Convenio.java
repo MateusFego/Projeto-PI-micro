@@ -1,12 +1,11 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "convenios")
@@ -14,8 +13,13 @@ public class Convenio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nome;
     private String descricao;
+
+    @MapsId
+    @OneToOne(mappedBy = "convenio")
+    @JoinColumn(name = "id")
+    private Consulta consulta;
 }
