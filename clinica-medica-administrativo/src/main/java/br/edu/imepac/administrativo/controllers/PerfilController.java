@@ -2,9 +2,11 @@ package br.edu.imepac.administrativo.controllers;
 
 import br.edu.imepac.comum.dtos.perfil.PerfilDto;
 import br.edu.imepac.comum.dtos.perfil.PerfilRequest;
+import br.edu.imepac.comum.security.Permissao;
 import br.edu.imepac.comum.services.PerfilService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +23,7 @@ public class PerfilController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('" + Permissao.CADASTRAR_PERFIL + "')")
     public PerfilDto criarPerfil(@RequestBody PerfilRequest perfilRequest) {
         log.info("Criando perfil - controller: {}", perfilRequest);
         return perfilService.adicionarPerfil(perfilRequest);
@@ -28,6 +31,7 @@ public class PerfilController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.ATUALIZAR_PERFIL + "')")
     public PerfilDto atualizarPerfil(@PathVariable Long id, @RequestBody PerfilDto perfilDto) {
         log.info("Atualizar perfil - controller: {}", perfilDto);
         return perfilService.atualizarPerfil(id, perfilDto);
@@ -35,6 +39,7 @@ public class PerfilController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasAuthority('" + Permissao.DELETAR_PERFIL + "')")
     public void removerPerfil(@PathVariable Long id) {
         log.info("Remover perfil - controller: {}", id);
         perfilService.removerPerfil(id);
@@ -42,6 +47,7 @@ public class PerfilController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.LER_PERFIL + "')")
     public PerfilDto buscarPerfilPorId(@PathVariable Long id) {
         log.info("Buscar perfil - controller: {}", id);
         return perfilService.buscarPerfilPorId(id);
@@ -49,6 +55,7 @@ public class PerfilController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.LISTAR_PERFIL + "')")
     public List<PerfilDto> listarPerfis() {
         log.info("Listar perfil - controller");
         return perfilService.listarPerfis();

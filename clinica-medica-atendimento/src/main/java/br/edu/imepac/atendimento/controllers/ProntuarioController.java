@@ -2,9 +2,11 @@ package br.edu.imepac.atendimento.controllers;
 
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioDto;
 import br.edu.imepac.comum.dtos.prontuario.ProntuarioRequest;
+import br.edu.imepac.comum.security.Permissao;
 import br.edu.imepac.comum.services.ProntuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +23,7 @@ public class ProntuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasAuthority('" + Permissao.CADASTRAR_PRONTUARIO + "')")
     public ProntuarioDto criarProntuario(@RequestBody ProntuarioRequest prontuarioRequest) {
         log.info("Criando prontuario - controller: {}", prontuarioRequest);
         return prontuarioService.adicionarProntuario(prontuarioRequest);
@@ -28,6 +31,7 @@ public class ProntuarioController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.ATUALIZAR_PRONTUARIO + "')")
     public ProntuarioDto atualizarProntuario(@PathVariable Long id, @RequestBody ProntuarioDto prontuarioDto) {
         log.info("Atualizar prontuario - controller: {}", prontuarioDto);
         return prontuarioService.atualizarProntuario(id, prontuarioDto);
@@ -35,6 +39,7 @@ public class ProntuarioController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasAuthority('" + Permissao.DELETAR_PRONTUARIO + "')")
     public void removerProntuario(@PathVariable Long id) {
         log.info("Remover prontuario - controller: {}", id);
         prontuarioService.removerProntuario(id);
@@ -42,6 +47,7 @@ public class ProntuarioController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.LER_PRONTUARIO + "')")
     public ProntuarioDto buscarProntuarioPorId(@PathVariable Long id) {
         log.info("Buscar prontuario - controller: {}", id);
         return prontuarioService.buscarProntuarioPorId(id);
@@ -49,6 +55,7 @@ public class ProntuarioController {
 
     @GetMapping("/listar")
     @ResponseStatus(HttpStatus.OK)
+    @PreAuthorize("hasAuthority('" + Permissao.LISTAR_PRONTUARIO + "')")
     public List<ProntuarioDto> listarProntuarios() {
         log.info("Listar prontuario - controller");
         return prontuarioService.listarProntuarios();
