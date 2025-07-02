@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProntuarioRequest {
+    private Long consultaId;
     private String receituario;
     private String exames;
     private String observacoes;

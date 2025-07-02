@@ -1,0 +1,1 @@
+insert into prontuarios(id,exames,observacoes,receituario) values(1,'exames','observacoes','receituario');

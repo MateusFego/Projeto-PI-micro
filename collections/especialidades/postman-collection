@@ -1,0 +1,1732 @@
+{
+	"info": {
+		"_postman_id": "e7af7038-eff1-491f-aba2-df87fe7cf84d",
+		"name": "Clinica",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42478635"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login administrativo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var j = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", j.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"teste\",\r\n    \"password\":\"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login agendamento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var j = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", j.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"teste\",\r\n    \"password\":\"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login atendimento",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var j = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", j.token)"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"teste\",\r\n    \"password\":\"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "funcionario",
+			"item": [
+				{
+					"name": "criar funcionario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"usuario\": \"usuario_4b5dcb7802asd\",\r\n  \"senha\": \"senha_48e8a14c23d4\",\r\n  \"nome\": \"nome_1cb1981c352b\",\r\n  \"idade\": 30,\r\n  \"sexo\": \"m\",\r\n  \"cpf\": \"cpf_427cc12f2ed8\",\r\n  \"rua\": \"rua_5fb01e83b9e1\",\r\n  \"numero\": \"numero_0f3de42b2561\",\r\n  \"complemento\": \"complemento_5977255b97e4\",\r\n  \"bairro\": \"bairro_6e84c0653cab\",\r\n  \"cidade\": \"cidade_f68d96df102b\",\r\n  \"estado\": \"estado_7c0e65d40db0\",\r\n  \"contato\": \"contato_7ae917c44652\",\r\n  \"email\": \"email_dd8892e35134\",\r\n  \"dataNascimento\": \"2025-06-29\",\r\n  \"tipoFuncionario\": \"ATENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/funcionarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar funcionario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":4,\r\n  \"usuario\": \"usuario_4b5dcb7802asd\",\r\n  \"senha\": \"senha_48e8a14c23d4\",\r\n  \"nome\": \"Zé das Couves\",\r\n  \"idade\": 35,\r\n  \"sexo\": \"m\",\r\n  \"cpf\": \"cpf_427cc12f2ed8\",\r\n  \"rua\": \"rua_5fb01e83b9e1\",\r\n  \"numero\": \"numero_0f3de42b2561\",\r\n  \"complemento\": \"complemento_5977255b97e4\",\r\n  \"bairro\": \"bairro_6e84c0653cab\",\r\n  \"cidade\": \"cidade_f68d96df102b\",\r\n  \"estado\": \"estado_7c0e65d40db0\",\r\n  \"contato\": \"contato_7ae917c44652\",\r\n  \"email\": \"email_dd8892e35134\",\r\n  \"dataNascimento\": \"2025-06-29\",\r\n  \"tipoFuncionario\": \"ATENDENTE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/funcionarios/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"funcionarios",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler funcionario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/funcionarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"funcionarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar funcionario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/funcionarios/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"funcionarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar funcionario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/funcionarios/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"funcionarios",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "paciente",
+			"item": [
+				{
+					"name": "criar paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"nome_de49665d5bcb\",\r\n    \"idade\":\"23\",\r\n    \"sexo\":\"f\",\r\n    \"cpf\":\"cpf_eff39898f08d\",\r\n    \"rua\":\"rua_a378c8e069de\",\r\n    \"numero\":\"numero_a0331421477b\",\r\n    \"complemento\":\"complemento_20011a99b2a1\",\r\n    \"bairro\":\"bairro_dff4bd5ece01\",\r\n    \"cidade\":\"cidade_50fdbba94688\",\r\n    \"estado\":\"estado_f5dde1aedbf4\",\r\n    \"contato\":\"contato_e31128a83512\",\r\n    \"email\":\"email_f6b27020b0bd\",\r\n    \"dataNascimento\":\"2025-06-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/pacientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"pacientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"nome\":\"Maria\",\r\n    \"idade\":\"23\",\r\n    \"sexo\":\"f\",\r\n    \"cpf\":\"cpf_eff39898f08d\",\r\n    \"rua\":\"rua_a378c8e069de\",\r\n    \"numero\":\"numero_a0331421477b\",\r\n    \"complemento\":\"complemento_20011a99b2a1\",\r\n    \"bairro\":\"bairro_dff4bd5ece01\",\r\n    \"cidade\":\"cidade_50fdbba94688\",\r\n    \"estado\":\"estado_f5dde1aedbf4\",\r\n    \"contato\":\"contato_e31128a83512\",\r\n    \"email\":\"email_f6b27020b0bd\",\r\n    \"dataNascimento\":\"2025-06-29\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/pacientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"pacientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/pacientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"pacientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/pacientes/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"pacientes",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar paciente",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/pacientes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"pacientes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "especialidade",
+			"item": [
+				{
+					"name": "criar especialidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"geral\",\r\n    \"descricao\":\"atende todos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/especialidades",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"especialidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar especialidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"nome\":\"Geral\",\r\n    \"descricao\":\"atende todas as outras espcialidades\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/especialidades/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"especialidades",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler especialidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/especialidades/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"especialidades",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar especialidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/especialidades/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"especialidades",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar especialidade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"nome\":\"Geral\",\r\n    \"descricao\":\"atende todas as outras espcialidades\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/especialidades/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"especialidades",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "convenio",
+			"item": [
+				{
+					"name": "criar convenio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"unimed\",\r\n    \"descricao\":\"paga parte das consultas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/convenios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"convenios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar convenio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"nome\":\"unimed\",\r\n    \"descricao\":\"paga as consultas integralmente e parte dos exames\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/convenios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"convenios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler convenio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/convenios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"convenios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar convenio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/convenios/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"convenios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar convenio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/convenios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"convenios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "perfil",
+			"item": [
+				{
+					"name": "criar perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"atendente\",\r\n    \"cadastrarFuncionario\":\"false\",\r\n    \"lerFuncionario\":\"false\",\r\n    \"atualizarFuncionario\":\"false\",\r\n    \"deletarFuncionario\":\"false\",\r\n    \"listarFuncionario\":\"false\",\r\n    \"cadastrarPaciente\":\"true\",\r\n    \"lerPaciente\":\"true\",\r\n    \"atualizarPaciente\":\"true\",\r\n    \"deletarPaciente\":\"true\",\r\n    \"listarPaciente\":\"true\",\r\n    \"cadastrarConsulta\":\"true\",\r\n    \"lerConsulta\":\"true\",\r\n    \"atualizarConsulta\":\"true\",\r\n    \"deletarConsulta\":\"true\",\r\n    \"listarConsulta\":\"true\",\r\n    \"cadastrarEspecialidade\":\"false\",\r\n    \"lerEspecialidade\":\"false\",\r\n    \"atualizarEspecialidade\":\"false\",\r\n    \"deletarEspecialidade\":\"false\",\r\n    \"listarEspecialidade\":\"false\",\r\n    \"cadastrarConvenio\":\"true\",\r\n    \"lerConvenio\":\"true\",\r\n    \"atualizarConvenio\":\"true\",\r\n    \"deletarConvenio\":\"true\",\r\n    \"listarConvenio\":\"true\",\r\n    \"cadastrarProntuario\":\"true\",\r\n    \"lerProntuario\":\"true\",\r\n    \"atualizarProntuario\":\"true\",\r\n    \"deletarProntuario\":\"true\",\r\n    \"listarProntuario\":\"true\",\r\n    \"cadastrarPerfil\":\"false\",\r\n    \"lerPerfil\":\"false\",\r\n    \"atualizarPerfil\":\"false\",\r\n    \"deletarPerfil\":\"false\",\r\n    \"listarPerfil\":\"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/perfis",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"perfis"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":4,\r\n    \"nome\":\"atendente2\",\r\n    \"cadastrarFuncionario\":\"false\",\r\n    \"lerFuncionario\":\"false\",\r\n    \"atualizarFuncionario\":\"false\",\r\n    \"deletarFuncionario\":\"false\",\r\n    \"listarFuncionario\":\"false\",\r\n    \"cadastrarPaciente\":\"true\",\r\n    \"lerPaciente\":\"true\",\r\n    \"atualizarPaciente\":\"true\",\r\n    \"deletarPaciente\":\"true\",\r\n    \"listarPaciente\":\"true\",\r\n    \"cadastrarConsulta\":\"true\",\r\n    \"lerConsulta\":\"true\",\r\n    \"atualizarConsulta\":\"true\",\r\n    \"deletarConsulta\":\"true\",\r\n    \"listarConsulta\":\"true\",\r\n    \"cadastrarEspecialidade\":\"false\",\r\n    \"lerEspecialidade\":\"false\",\r\n    \"atualizarEspecialidade\":\"false\",\r\n    \"deletarEspecialidade\":\"false\",\r\n    \"listarEspecialidade\":\"false\",\r\n    \"cadastrarConvenio\":\"true\",\r\n    \"lerConvenio\":\"true\",\r\n    \"atualizarConvenio\":\"true\",\r\n    \"deletarConvenio\":\"true\",\r\n    \"listarConvenio\":\"true\",\r\n    \"cadastrarProntuario\":\"true\",\r\n    \"lerProntuario\":\"true\",\r\n    \"atualizarProntuario\":\"true\",\r\n    \"deletarProntuario\":\"true\",\r\n    \"listarProntuario\":\"true\",\r\n    \"cadastrarPerfil\":\"false\",\r\n    \"lerPerfil\":\"false\",\r\n    \"atualizarPerfil\":\"false\",\r\n    \"deletarPerfil\":\"false\",\r\n    \"listarPerfil\":\"false\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/perfis/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"perfis",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/perfis/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"perfis",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/perfis/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"perfis",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar perfil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clinica-medica-administrativo/perfis/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clinica-medica-administrativo",
+								"perfis",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "consulta",
+			"item": [
+				{
+					"name": "criar consulta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dataHorario\":\"2025-07-01T19:00:00.00\",\r\n    \"sintomas\":\"febre\",\r\n    \"eRetorno\":\"false\",\r\n    \"estaAtiva\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/consultas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"consultas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar consulta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"dataHorario\":\"2025-07-01T19:00:00.00\",\r\n    \"sintomas\":\"caganeira e preguiça\",\r\n    \"eRetorno\":\"false\",\r\n    \"estaAtiva\":\"true\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/consultas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"consultas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler consulta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/consultas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"consultas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar consulta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/consultas/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"consultas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar consulta",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/clinica-medica-agendamento/consultas/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"clinica-medica-agendamento",
+								"consultas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "prontuario",
+			"item": [
+				{
+					"name": "criar prontuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"consultaId\":1,\r\n    \"receituario\":\"aqui vão as receitas\",\r\n    \"exames\":\"aqui vão os exames\",\r\n    \"observacoes\":\"aqui vão as observações\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/prontuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"prontuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editar prontuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2,\r\n    \"receituario\":\"Aqui vão as receitas\",\r\n    \"exames\":\"Aqui vão os exames\",\r\n    \"observacoes\":\"Aqui vão as observações\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/prontuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"prontuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ler prontuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/prontuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"prontuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar prontuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/prontuarios/listar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"prontuarios",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletar prontuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/clinica-medica-atendimento/prontuarios/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"clinica-medica-atendimento",
+								"prontuarios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "123",
+			"type": "string"
+		}
+	]
+}

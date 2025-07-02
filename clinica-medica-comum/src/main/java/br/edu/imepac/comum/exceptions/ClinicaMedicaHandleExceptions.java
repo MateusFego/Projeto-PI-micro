@@ -1,4 +1,4 @@
-package br.edu.imepac.administrativo.exception;
+package br.edu.imepac.comum.exceptions;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,6 +14,7 @@ public class ClinicaMedicaHandleExceptions {
     // This method handles generic exceptions and returns a 500 Internal Server Error.
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception e) {
+        log.error(e.getMessage(), e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro inesperado, tente novamente!"); // Returns a response with status 500.
     }
 
@@ -23,4 +24,10 @@ public class ClinicaMedicaHandleExceptions {
         log.error("An error occurred: " + e.getMessage()); // Logs the error message.
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Dados de acesso inválido!"); // Returns a response with status 401.
     }
+
+//    @ExceptionHandler(IllegalArgumentException.class)
+//    public ResponseEntity<String> handleBadRequest(Exception e) {
+//        log.error("An error occurred: " + e.getMessage()); // Logs the error message.
+//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Corpo Inválido"); // Returns a response with status 401.
+//    }
 }

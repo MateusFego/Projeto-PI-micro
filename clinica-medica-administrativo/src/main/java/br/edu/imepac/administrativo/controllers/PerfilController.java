@@ -13,7 +13,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/perfils")
+@RequestMapping("/perfis")
 public class PerfilController {
     private final PerfilService perfilService;
 

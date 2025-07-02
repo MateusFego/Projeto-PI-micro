@@ -26,8 +26,10 @@ public class Consulta {
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Prontuario prontuario;
 
-    @PrimaryKeyJoinColumn
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @PrimaryKeyJoinColumn
+//    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne
+    @JoinColumn(name = "convenio_id")
     private Convenio convenio;
 
     @ManyToOne

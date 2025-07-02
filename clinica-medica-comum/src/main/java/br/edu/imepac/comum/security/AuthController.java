@@ -2,6 +2,7 @@ package br.edu.imepac.comum.security;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,6 +22,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/auth")
 @Validated
+@Slf4j
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
@@ -49,6 +51,7 @@ public class AuthController {
                             .map(GrantedAuthority::getAuthority)
                             .toList()));
         } catch (Exception e) {
+            log.error(e.getMessage(), e);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new JwtResponse(null, null, List.of()));
         }

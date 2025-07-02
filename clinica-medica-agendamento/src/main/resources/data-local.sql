@@ -1,0 +1,1 @@
+insert into consultas(id,data_horario,e_retorno,esta_ativa,sintomas,convenio_id,funcionario_id,paciente_id) values(1,'2025-06-12T15:30:00.00',false,false,'indisposto',1,2,1);

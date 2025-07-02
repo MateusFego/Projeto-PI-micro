@@ -6,6 +6,7 @@ import br.edu.imepac.comum.models.Funcionario;
 import br.edu.imepac.comum.repositories.FuncionarioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,15 +17,18 @@ public class FuncionarioService {
 
     private final ModelMapper modelMapper;
     private final FuncionarioRepository funcionarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public FuncionarioService(ModelMapper modelMapper, FuncionarioRepository funcionarioRepository) {
+    public FuncionarioService(ModelMapper modelMapper, FuncionarioRepository funcionarioRepository, PasswordEncoder passwordEncoder) {
         this.modelMapper = modelMapper;
         this.funcionarioRepository = funcionarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public FuncionarioDto adicionarFuncionario(FuncionarioRequest funcionarioRequest) {
         log.info("Cadastro de funcionário - service: {}", funcionarioRequest);
         Funcionario funcionario = modelMapper.map(funcionarioRequest, Funcionario.class);
+        funcionario.setSenha(passwordEncoder.encode(funcionario.getSenha()));
         funcionario = funcionarioRepository.save(funcionario);
         return modelMapper.map(funcionario, FuncionarioDto.class);
     }
