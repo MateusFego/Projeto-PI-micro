@@ -1,4 +1,4 @@
-package br.edu.imepac.administrativo.exception;
+package br.edu.imepac.comum.exceptions;
 
 public class AuthenticationClinicaMedicaException extends RuntimeException {
 

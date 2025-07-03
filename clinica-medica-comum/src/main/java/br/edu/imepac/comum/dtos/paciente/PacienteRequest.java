@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PacienteRequest {
     private String nome;
-    private int idade;
+    private Long idade;
     private char sexo;
     private String cpf;
     private String rua;

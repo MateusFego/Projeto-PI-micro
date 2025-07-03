@@ -1,12 +1,12 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "prontuarios")
@@ -14,7 +14,7 @@ public class Prontuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Lob
     private String receituario;
@@ -23,4 +23,9 @@ public class Prontuario {
     private String exames;
 
     private String observacoes;
+
+    @MapsId
+    @OneToOne(mappedBy = "prontuario")
+    @JoinColumn(name = "id")
+    private Consulta consulta;
 }

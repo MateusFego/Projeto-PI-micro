@@ -45,14 +45,14 @@ public class PacienteService {
         repository.delete(paciente);
     }
 
-    public PacienteDto buscarPorId(Long id) {
+    public PacienteDto buscarPacientePorId(Long id) {
         log.info("Buscando paciente com ID: {}", id);
         Paciente paciente = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Paciente não encontrado com ID: " + id));
         return modelMapper.map(paciente, PacienteDto.class);
     }
 
-    public List<PacienteDto> listar() {
+    public List<PacienteDto> listarPacientes() {
         log.info("Listando todos os pacientes");
         return repository.findAll().stream()
                 .map(p -> modelMapper.map(p, PacienteDto.class))

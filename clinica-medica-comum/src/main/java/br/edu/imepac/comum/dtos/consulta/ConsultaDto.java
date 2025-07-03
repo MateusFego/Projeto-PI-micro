@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ConsultaDto {
-    private int id;
+    private Long id;
     private LocalDateTime dataHorario;
     private String sintomas;
     private boolean eRetorno;

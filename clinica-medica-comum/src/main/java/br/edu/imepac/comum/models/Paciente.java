@@ -1,14 +1,14 @@
 package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "pacientes")
@@ -16,10 +16,10 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String nome;
-    private int idade;
+    private Long idade;
     private char sexo;
     private String cpf;
     private String rua;
@@ -31,4 +31,7 @@ public class Paciente {
     private String contato;
     private String email;
     private LocalDate dataNascimento;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<Consulta> consultas;
 }

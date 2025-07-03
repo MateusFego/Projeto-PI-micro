@@ -2,6 +2,7 @@ package br.edu.imepac.comum.services;
 
 import br.edu.imepac.comum.dtos.consulta.ConsultaDto;
 import br.edu.imepac.comum.dtos.consulta.ConsultaRequest;
+import br.edu.imepac.comum.exceptions.NotFoundClinicaMedicaException;
 import br.edu.imepac.comum.models.Consulta;
 import br.edu.imepac.comum.repositories.ConsultaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -15,47 +16,50 @@ import java.util.List;
 public class ConsultaService {
 
     private final ModelMapper modelMapper;
-    private final ConsultaRepository repository;
 
-    public ConsultaService(ModelMapper modelMapper, ConsultaRepository repository) {
+    private final ConsultaRepository consultaRepository;
+
+
+    public ConsultaService(ModelMapper modelMapper, ConsultaRepository consultaRepository) {
         this.modelMapper = modelMapper;
-        this.repository = repository;
+        this.consultaRepository = consultaRepository;
     }
 
-    public ConsultaDto adicionarConsulta(ConsultaRequest request) {
-        log.info("Cadastro de consulta: {}", request);
-        Consulta consulta = modelMapper.map(request, Consulta.class);
-        consulta = repository.save(consulta);
+    public ConsultaDto adicionarConsulta(ConsultaRequest consultaRequest) {
+        log.info("Cadastro de consulta - service: {}", consultaRequest);
+        Consulta consulta = modelMapper.map(consultaRequest, Consulta.class);
+        consulta = consultaRepository.save(consulta);
         return modelMapper.map(consulta, ConsultaDto.class);
     }
 
-    public ConsultaDto atualizarConsulta(Long id, ConsultaDto dto) {
+    public ConsultaDto atualizarConsulta(Long id, ConsultaDto consultaDto) {
         log.info("Atualizando consulta com ID: {}", id);
-        Consulta existente = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada com ID: " + id));
-        modelMapper.map(dto, existente);
-        Consulta atualizado = repository.save(existente);
-        return modelMapper.map(atualizado, ConsultaDto.class);
+        Consulta consultaExistente = consultaRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada com ID: " + id));
+        modelMapper.map(consultaDto, consultaExistente);
+        Consulta consultaAtualizada = consultaRepository.save(consultaExistente);
+        return modelMapper.map(consultaAtualizada, ConsultaDto.class);
     }
 
     public void removerConsulta(Long id) {
         log.info("Removendo consulta com ID: {}", id);
-        Consulta consulta = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada com ID: " + id));
-        repository.delete(consulta);
+        Consulta consulta = consultaRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada com ID: " + id));
+        consultaRepository.delete(consulta);
     }
 
-    public ConsultaDto buscarPorId(Long id) {
+    public ConsultaDto buscarConsultaPorId(Long id) {
         log.info("Buscando consulta com ID: {}", id);
-        Consulta consulta = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Consulta não encontrada com ID: " + id));
+        Consulta consulta = consultaRepository.findById(id)
+                .orElseThrow(() -> new NotFoundClinicaMedicaException("Consulta não encontrada com ID: " + id));
         return modelMapper.map(consulta, ConsultaDto.class);
     }
 
-    public List<ConsultaDto> listar() {
+    public List<ConsultaDto> listarConsultas() {
         log.info("Listando todas as consultas");
-        return repository.findAll().stream()
-                .map(c -> modelMapper.map(c, ConsultaDto.class))
+        List<Consulta> consultas = consultaRepository.findAll();
+        return consultas.stream()
+                .map(consulta -> modelMapper.map(consulta, ConsultaDto.class))
                 .toList();
     }
 }

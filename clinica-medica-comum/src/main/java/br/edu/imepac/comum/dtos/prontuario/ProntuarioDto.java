@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProntuarioDto {
-    private int id;
+    private Long id;
     private String receituario;
     private String exames;
     private String observacoes;

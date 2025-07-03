@@ -2,11 +2,12 @@ package br.edu.imepac.comum.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import java.util.List;
+
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -20,4 +21,8 @@ public class Especialidade {
     @NotBlank(message = "O nome da especialidade é obrigatório.")
     @Column(nullable = false, unique = true)
     private String nome;
+    private String descricao;
+
+    @OneToMany(mappedBy = "especialidade")
+    private List<Funcionario> funcionarios;
 }

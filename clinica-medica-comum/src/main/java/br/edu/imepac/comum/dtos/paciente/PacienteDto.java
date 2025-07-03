@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteDto {
-    private int id;
+    private Long id;
     private String nome;
-    private int idade;
+    private Long idade;
     private char sexo;
     private String cpf;
     private String rua;

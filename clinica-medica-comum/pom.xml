@@ -24,6 +24,10 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
         <!-- spring-boot-starter-data-jpa -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -43,19 +47,44 @@
             <artifactId>jakarta.validation-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+        </dependency>
+
     </dependencies>
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            &lt;!&ndash; Plugin para compilar o código Java &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.13.0</version> &lt;!&ndash; Use a versão mais recente &ndash;&gt;-->
-<!--                <configuration>-->
-<!--                    <source>${java.version}</source> &lt;!&ndash; Versão do Java utilizada no projeto &ndash;&gt;-->
-<!--                    <target>${java.version}</target> &lt;!&ndash; Versão do bytecode gerado &ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            &lt;!&ndash; Plugin para compilar o código Java &ndash;&gt;-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+    <!--                <version>3.13.0</version> &lt;!&ndash; Use a versão mais recente &ndash;&gt;-->
+    <!--                <configuration>-->
+    <!--                    <source>${java.version}</source> &lt;!&ndash; Versão do Java utilizada no projeto &ndash;&gt;-->
+    <!--                    <target>${java.version}</target> &lt;!&ndash; Versão do bytecode gerado &ndash;&gt;-->
+    <!--                </configuration>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
 </project>

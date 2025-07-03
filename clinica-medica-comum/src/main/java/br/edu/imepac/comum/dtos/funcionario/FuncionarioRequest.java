@@ -14,7 +14,7 @@ public class FuncionarioRequest {
     private String usuario;
     private String senha;
     private String nome;
-    private Integer idade;
+    private Long idade;
     private char sexo;
     private String cpf;
     private String rua;
